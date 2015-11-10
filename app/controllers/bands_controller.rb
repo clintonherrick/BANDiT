@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
   before_action :find_band, only: [:show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy]
 
   def index
     if params[:genre].blank?
@@ -26,6 +26,22 @@ class BandsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @band.update(band_params)
+      redirect_to @band
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @band.destroy
+    redirect_to root_path
   end
 
   private
