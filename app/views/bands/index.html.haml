@@ -1,3 +1,10 @@
-%h1 this is the band placeholder
+%h1 List of Bands
+
+- @bands.each do |band|
+  %h2= link_to band.title, band
+  %p
+    Created -
+    = band.created_at.strftime('%b, %d, %Y')
+  %p= band.content
 
 = link_to "New Band", new_band_path
