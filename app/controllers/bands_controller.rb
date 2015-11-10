@@ -1,8 +1,14 @@
 class BandsController < ApplicationController
   before_action :find_band, only: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    if params[:genre].blank?
     @bands = Band.all.order("created_at DESC")
+  else
+    @genre_id = Genre.find_by(name: params[:genre]).id
+    @Bands = Band.where(genre_id: @genre_id).order("created_at DESC")
+  end
   end
 
   def show
@@ -29,7 +35,7 @@ class BandsController < ApplicationController
   end
 
   def band_params
-  params. require(:band).permit(:title, :content)
+  params. require(:band).permit(:title, :content, :genre_id)
 
   end
 
