@@ -9,12 +9,12 @@ class BandsController < ApplicationController
   end
 
   def new
-    @band = Band.new
+    @band = current_user.bands.build
   end
 
 
   def create
-    @band = Band.new(band_params)
+    @band = current_user.bands.build(band_params)
     if @band.save
       redirect_to @band
     else
