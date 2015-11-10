@@ -1,6 +1,11 @@
 class BandsController < ApplicationController
+  before_action :find_band, only: [:show]
   def index
   end
+
+  def show
+  end
+
 
   def new
     @band = Band.new
@@ -17,6 +22,10 @@ class BandsController < ApplicationController
   end
 
   private
+
+  def find_band
+    @band = Band.find(params[:id])
+  end
 
   def band_params
   params. require(:band).permit(:title, :content)
