@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-  before_action :find_band, only: [:show]
+  before_action :find_band, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy]
 
   def index
@@ -7,7 +7,7 @@ class BandsController < ApplicationController
     @bands = Band.all.order("created_at DESC")
   else
     @genre_id = Genre.find_by(name: params[:genre]).id
-    @Bands = Band.where(genre_id: @genre_id).order("created_at DESC")
+    @bands = Band.where(genre_id: @genre_id).order("created_at DESC")
   end
   end
 
@@ -40,6 +40,7 @@ class BandsController < ApplicationController
   end
 
   def destroy
+    @band = Band.find(params[:id])
     @band.destroy
     redirect_to root_path
   end

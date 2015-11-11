@@ -3,4 +3,4 @@
 
 = link_to "Back", root_path
 = link_to "Edit", edit_band_path(@band)
-= link_to "Delete", band_path(@band), method: :delete, data: {confirm: " Are you sure? "}
+= link_to "Delete", band_path(@band, @genre), data: {confirm: " Are you sure? "}, method: "delete"
