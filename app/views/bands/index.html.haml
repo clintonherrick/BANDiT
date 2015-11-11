@@ -1,9 +1,0 @@
-- @bands.each do |band|
-    %h2= link_to band.title, band
-    %p
-        Created -
-        = band.created_at.strftime('%b, %d, %Y')
-    %p= band.content
-
-- if user_signed_in?
-    = link_to "New Band", new_band_path

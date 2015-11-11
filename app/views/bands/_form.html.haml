@@ -1,5 +1,0 @@
-= simple_form_for @band do |f|
-  = f.collection_select :genre_id, Genre.all, :id, :name, {promt: "Select a Music Genre"}
-  = f.input :title
-  = f.input :content
-  = f.submit

@@ -1,0 +1,15 @@
+<% @bands.each do |band| %>
+  <h2>
+    <%= link_to band.title, band %>
+  </h2>
+  <p>
+    Created -
+    <%= band.created_at.strftime('%b, %d, %Y') %>
+  </p>
+  <p>
+    <%= band.content %>
+  </p>
+<% end %>
+<% if user_signed_in? %>
+  <%= link_to "New Band", new_band_path %>
+<% end %>
