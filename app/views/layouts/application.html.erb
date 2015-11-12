@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html></html>
 <head>
   <title>Bandit</title>
@@ -9,12 +9,11 @@
 <body></body>
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container">
-    <%= link_to "Bandit", root_path, class: "navbar-brand" %>
+    <div class="header-logo">
+      <%= link_to image_tag ("header-logo.png") %>
+    </div>
     <ul class="nav navbar-nav navbar-right"></ul>
     <% if user_signed_in? %>
-      <li><br>
-        <%= link_to "New Band", new_band_path %>
-      </li>
     <% end %>
   </div>
   <p class="notice">
