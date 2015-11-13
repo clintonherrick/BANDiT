@@ -52,7 +52,7 @@ class BandsController < ApplicationController
   end
 
   def band_params
-  params. require(:band).permit(:title, :content, :genre_id)
+  params. require(:band).permit(:title, :content, :genre_id, :image)
 
   end
 

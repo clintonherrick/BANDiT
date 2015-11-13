@@ -1,6 +1,10 @@
-<%= simple_form_for @band do |f| %>
+<%= simple_form_for @band, html: { multipart: false } do |f| %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, {promt: "Select a Music Genre"} %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.submit %>
+
+  <%= f.input :image, as: :file %>
+
+<%= f.submit %>
+
 <% end %>
